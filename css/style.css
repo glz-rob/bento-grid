@@ -8,7 +8,7 @@
 }
 
 :root {
-    font-size: 18px;
+    font-size: 16px;
 
     --PURPLE-100: hsl(254, 88%, 90%);
     --PURPLE-500: hsl(256, 67%, 59%);
@@ -118,6 +118,16 @@ body {
     line-height: clamp(1.5rem, 6vw, 2.1rem);
 }
 
+/* BENTO 6*/
+.bento-container:nth-child(6) {
+    gap: 1rem;
+    justify-content: space-evenly;
+    padding: 1.5rem;
+    text-align: start;
+}
+
+.bento-container:nth-child(6) img { width: 60%; }
+
 /* BENTO 7, 8*/
 .bento-container:is(:nth-child(7),:nth-child(8)) {
     align-items: start;
@@ -165,23 +175,29 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .bento-container:nth-child(1) {
-        grid-column: span 2;
+    .bento-container:nth-child(1) { grid-column: span 2; }
+    .bento-container:nth-child(7) { grid-row: span 2;}
+
+    .bento-container:nth-child(7) {
+        justify-content: center;
+        flex-flow: column;
+        gap: 1.5rem;
+        grid-row: 3 / span 2;
     }
 }
 
 /* LARGE */
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1100px) and (min-height: 736px) {
     body {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 3fr 1fr 1fr 1fr 1fr;
         height: 100vh;
-        max-width: 85vw;
+        max-width: 76.5rem;
         margin: auto;
     }
 
     .bento-container:nth-child(1) {
-        grid-column: 2 / span 2;
+        grid-column: span 2;
     }
 
     .bento-container:nth-child(2) {
@@ -193,17 +209,27 @@ body {
     }
 
     .bento-container:nth-child(4) {
-        align-items: start;
+        align-items: end;
+        gap: 0.5rem;
         grid-column: 4;
         grid-row: 1 / span 3;
-        padding: none;
+        justify-content: space-around;
+        overflow: hidden;
+        padding: 2rem 0;
+        position: relative;
         text-align: start;
     }
 
+    .bento-container:nth-child(4) *:not(img) {
+        padding: 0rem 2rem;
+    }
+
     .bento-container:nth-child(4) img {
-        /* margin-right: 10%; */
-        border: var(--TEST-BORDER);
-        transform: translate(0 10px);
+        object-fit: scale-down;
+        object-position: left;
+        margin-right: -60%;
+        max-width: none;
+        width: 150%;
     }
 
     .bento-container:nth-child(5) {
@@ -220,6 +246,10 @@ body {
         grid-row: 4 / span 2;
     }
 
+    .bento-container:nth-child(6) img {
+        width: 85%;
+    }
+
     .bento-container:nth-child(7) {
         justify-content: center;
         flex-flow: column;
@@ -229,7 +259,7 @@ body {
     }
 
     .bento-container:nth-child(8) {
-        justify-content: space-between;
+        justify-content: space-evenly;
         flex-flow: column;
         gap: 1.5rem;
         grid-column: 1;
