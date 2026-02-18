@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* || RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-size: 18px;
+
+    --PURPLE-100: hsl(254, 88%, 90%);
+    --PURPLE-500: hsl(256, 67%, 59%);
+    --YELLOW-100: hsl(31, 66%, 93%);
+    --YELLOW-500: hsl(39, 100%, 71%);
+    --WHITE: hsl(0, 0%, 100%);
+    --ALMOST-WHITE: #F5F5F5;
+    --BLACK: hsl(0, 0%, 7%);
+
+    --FS: 18px;
+    --FONT-FAMILY: 'DM Sans', Arial, Helvetica, sans-serif;
+
+    --FONT: normal 400 var(--FS) var(--FONT-FAMILY);
+    --FONT-BOLD: normal 500 var(--FS) var(--FONT-FAMILY);
+
+    --TEST-BORDER: 1px dashed red;
+}
+
+/* || GENERAL STYLES */
+body {
+    background-color: var(--ALMOST-WHITE);
+    display: grid;
+    font: var(--FONT);
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+
+/* img {
+    height: auto;
+    max-width: 100%;
+} */
+
+/* || BLOCK */
+.bento-container {
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    padding: 1rem;
+}
+
+.bento-container:nth-child(5) {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+/* || ELEMENT */
+.bento-container :is(h1, h2) {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: normal;
+}
+
+.bento-container h2 {
+    /* font-size: 1rem; */
+    font: var(--FONT-BOLD);
+}
+
+.bento-container img {
+    object-fit: cover;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* || MODIFIER */
+.italic { font-style: italic; }
+
+/* FONT COLOR */
+.purple { color: var(--PURPLE-500); }
+.yellow { color: var(--YELLOW-500); }
+.white { color: var(--WHITE); }
+
+/* BACKGROUND COLOR */
+.bg-purple { background-color: var(--PURPLE-500); color: var(--WHITE); }
+.bg-purple-100 { background-color: var(--PURPLE-100); }
+.bg-yellow { background-color: var(--YELLOW-500); }
+.bg-yellow-100 { background-color: var(--YELLOW-100); }
+.bg-white { background-color: var(--WHITE); }
+
+/* || OTHER */
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/* || MEDIA QUERIES */
+@media screen and (min-width: 576px) {
+    body {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 3fr 1fr 1fr 1fr 1fr;
+        height: 100vh;
+        max-width: 85vw;
+        margin: auto;
+    }
+
+    .bento-container {
+        min-width: 100px;
+        min-height: 100px;
+    }
+
+    .bento-container:nth-child(1) {
+        grid-column: 2 / span 2;
+    }
+
+    .bento-container:nth-child(2) {
+        grid-row: 2 / span 2;
+    }
+
+    .bento-container:nth-child(3) {
+        grid-row: 2 / span 2;
+    }
+
+    .bento-container:nth-child(4) {
+        grid-column: 4;
+        grid-row: 1 / span 3;
+    }
+
+    .bento-container:nth-child(5) {
+        grid-column: 3 / span 2;
+        grid-row: span 2;
+    }
+
+    .bento-container:nth-child(6) {
+        grid-column: 2;
+        grid-row: 4 / span 2;
+    }
+
+    .bento-container:nth-child(7) {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .bento-container:nth-child(8) {
+        grid-column: 1;
+        grid-row: 3 / span 3;
+    }
+}
