@@ -56,7 +56,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
-Grid usage.
+Grid usage. How to manipulate images inside a container.
 
 **Note: Delete this note and the content within this section and replace with your own learnings.**
 

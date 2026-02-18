@@ -22,7 +22,6 @@
     --FONT-FAMILY: 'DM Sans', Arial, Helvetica, sans-serif;
 
     --FONT: normal 400 var(--FS) var(--FONT-FAMILY);
-    --FONT-BOLD: normal 500 var(--FS) var(--FONT-FAMILY);
 
     --TEST-BORDER: 1px dashed red;
 }
@@ -36,38 +35,105 @@ body {
     padding: 2rem 1rem;
 }
 
-/* img {
-    height: auto;
-    max-width: 100%;
-} */
+.header {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    font-weight: 500;
+    line-height: clamp(2.5rem, 8vh, 3.5rem);
+}
+
+.header2 {
+    font-size: clamp(1.5rem, 8vw, 2.2rem);
+    line-height: clamp(1.5rem, 6vw, 2rem);
+    font-weight: 500;
+    letter-spacing: -0.1rem;
+}
+
+.header3 {
+    font-size: clamp(1.5rem, 6vw, 1.8rem);
+    font-weight: 500;
+    letter-spacing: -0.1rem;
+    line-height: clamp(1.5rem, 6vw, 1.7rem);
+}
 
 /* || BLOCK */
 .bento-container {
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     display: flex;
     flex-flow: column nowrap;
     text-align: center;
+    overflow: hidden;
     padding: 1rem;
 }
 
+/* Bento 1 */
+.bento-container:nth-child(1) {
+    align-items: center;
+    gap: 0.2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.bento-container:nth-child(1) img{
+    margin-top: 1rem;
+    width: 10rem;
+}
+
+/* BENTO 2 */
+.bento-container:nth-child(2) {
+    align-items: start;
+    gap: 0.5rem;
+    justify-content: space-evenly;
+    text-align: start;
+}
+
+/* BENTO 3 */
+.bento-container:nth-child(3) {
+    align-items: start;
+    gap: 0.5rem;
+    justify-content: start;
+    overflow: hidden;
+    padding-bottom: 0;
+    text-align: start;
+}
+
+/* BENTO 4 */
+.bento-container:nth-child(4) {
+    gap: 1rem;
+    justify-content: space-evenly;
+}
+
+.bento-container:nth-child(4) img {
+    height: 60%;
+    overflow: hidden;
+}
+
+/* BENTO 5 */
 .bento-container:nth-child(5) {
-    display: flex;
-    flex-flow: row nowrap;
+    gap: 1rem;
+    padding: 1.5rem 4rem;
+}
+
+.bento-container:nth-child(5) .header2 {
+    font-size: clamp(1.5rem, 8vw, 2.3rem);
+    line-height: clamp(1.5rem, 6vw, 2.1rem);
+}
+
+/* BENTO 7, 8*/
+.bento-container:is(:nth-child(7),:nth-child(8)) {
+    align-items: start;
+    gap: 1rem;
+    justify-content: start;
+    overflow: hidden;
+    padding: 1.5rem;
+    text-align: start;
+}
+
+.bento-container:is(:nth-child(7),:nth-child(8)) img {
+    width: 70%;
 }
 
 /* || ELEMENT */
-.bento-container :is(h1, h2) {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: normal;
-}
-
-.bento-container h2 {
-    /* font-size: 1rem; */
-    font: var(--FONT-BOLD);
-}
-
 .bento-container img {
-    object-fit: cover;
     max-height: 100%;
     max-width: 100%;
 }
@@ -92,18 +158,26 @@ body {
 .attribution a { color: hsl(228, 45%, 44%); }
 
 /* || MEDIA QUERIES */
+
+/* MEDIUM */
 @media screen and (min-width: 576px) {
+    body {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bento-container:nth-child(1) {
+        grid-column: span 2;
+    }
+}
+
+/* LARGE */
+@media screen and (min-width: 1100px) {
     body {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 3fr 1fr 1fr 1fr 1fr;
         height: 100vh;
         max-width: 85vw;
         margin: auto;
-    }
-
-    .bento-container {
-        min-width: 100px;
-        min-height: 100px;
     }
 
     .bento-container:nth-child(1) {
@@ -119,13 +193,26 @@ body {
     }
 
     .bento-container:nth-child(4) {
+        align-items: start;
         grid-column: 4;
         grid-row: 1 / span 3;
+        padding: none;
+        text-align: start;
+    }
+
+    .bento-container:nth-child(4) img {
+        /* margin-right: 10%; */
+        border: var(--TEST-BORDER);
+        transform: translate(0 10px);
     }
 
     .bento-container:nth-child(5) {
+        align-items: center;
+        flex-flow: row;
         grid-column: 3 / span 2;
         grid-row: span 2;
+        padding: 1.5rem;
+        text-align: start;
     }
 
     .bento-container:nth-child(6) {
@@ -134,12 +221,22 @@ body {
     }
 
     .bento-container:nth-child(7) {
+        justify-content: center;
+        flex-flow: column;
+        gap: 1.5rem;
         grid-column: 1;
         grid-row: 1 / span 2;
     }
 
     .bento-container:nth-child(8) {
+        justify-content: space-between;
+        flex-flow: column;
+        gap: 1.5rem;
         grid-column: 1;
         grid-row: 3 / span 3;
+    }
+
+    .bento-container:is(:nth-child(7), :nth-child(8)) img {
+        width: 100%;
     }
 }
