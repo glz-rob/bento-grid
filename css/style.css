@@ -73,6 +73,11 @@ footer {
     padding: 1rem;
 }
 
+.bento-container img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
 /* Bento 1 */
 .bento-container:nth-child(1) {
     align-items: center;
@@ -150,12 +155,6 @@ footer {
     width: 70%;
 }
 
-/* || ELEMENT */
-.bento-container img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
 /* || MODIFIER */
 .italic { font-style: italic; }
 
@@ -173,7 +172,6 @@ footer {
 
 /* || OTHER */
 .attribution { font-size: 0.625rem; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
 
 /* || MEDIA QUERIES */
 
